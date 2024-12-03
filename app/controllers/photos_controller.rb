@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  skip_before_action(:authenticate_user!, { :only => [:index] })
+  #added skip before action inside
   def index
     matching_photos = Photo.all
 
